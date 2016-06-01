@@ -3,15 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package fileparse1;
-
+package com.github.akshayavenkatesh8;
 import org.w3c.dom.Node;
 
 /**
  *
  * @author AKSHAYA
  */
-public class address {
+public class Address {
 
     /**
      *
