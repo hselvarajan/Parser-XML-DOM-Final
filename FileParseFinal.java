@@ -32,7 +32,7 @@ public class FileParseFinal {
         try{
            
     File input= new File("address1.xml");
-    fileParse(input);
+    new FileParse1(). fileParse(input);
         }catch(Exception e){
             System.out.println("ERROR"+e);
        
@@ -40,7 +40,7 @@ public class FileParseFinal {
 
     }
 }
-    public static void fileParse(File f) throws SAXException, IOException, ParserConfigurationException
+    public void fileParse(File f) throws SAXException, IOException, ParserConfigurationException
     {
     address add=new address();
     DocumentBuilderFactory db= DocumentBuilderFactory.newInstance();
@@ -65,7 +65,7 @@ public class FileParseFinal {
            add.zipCode=zipCode.getTextContent();
            System.out.println(add);
     }
-    public static Node getFirstElementSibling(Node node)
+    public  Node getFirstElementSibling(Node node)
     {
         Node nextNode=null;
         for(nextNode=node.getNextSibling();nextNode!=null;nextNode=nextNode.getNextSibling())
