@@ -67,13 +67,13 @@ public class FileParseFinal {
            add.zipCode=zipCode.getTextContent();
            System.out.println(add);
     }
-    public static Element getFirstElementSibling(Node node)
+    public static Node getFirstElementSibling(Node node)
     {
         Node nextNode=null;
         for(nextNode=node.getNextSibling();nextNode!=null;nextNode=nextNode.getNextSibling())
         {
             if(nextNode.getNodeType() == Node.ELEMENT_NODE)
-                return (Element) nextNode;
+                return  nextNode;
         }
     return null;
     }
