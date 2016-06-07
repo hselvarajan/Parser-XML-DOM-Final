@@ -51,6 +51,7 @@ public class FileParseFinal {
     Document doc = dbld.parse(f);
     doc.getDocumentElement().normalize();
     if(ieh.check == null){
+        System.out.println("The document validates");
     Element rootE= doc.getDocumentElement();
            Node name= rootE.getFirstChild();
            name=getFirstElementSibling(name); 
