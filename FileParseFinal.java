@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package com.github.akshayavenkatesh8;
 
 import java.io.File;
@@ -44,9 +40,17 @@ public class FileParseFinal {
     {
     address add=new address();
     DocumentBuilderFactory db= DocumentBuilderFactory.newInstance();
+    factory.setValidating(false);
+    factory.setNamespaceAware(true);
+    SchemaFactory schemaFactory = 
+    SchemaFactory.newInstance("http://www.w3.org/2001/XMLSchema");
+    factory.setSchema(schemaFactory.newSchema(new Source[] {new StreamSource("address.xsd")}));
+    InvalidXMLErrorHandler ieh = new InvalidXMLErrorHandler();
     DocumentBuilder dbld= db.newDocumentBuilder();
+    dbld.setErrorHandler(ieh);
     Document doc = dbld.parse(f);
     doc.getDocumentElement().normalize();
+    if(ieh.check == null){
     Element rootE= doc.getDocumentElement();
            Node name= rootE.getFirstChild();
            name=getFirstElementSibling(name); 
@@ -64,6 +68,7 @@ public class FileParseFinal {
            add.stateCode=stateCode.getTextContent();
            add.zipCode=zipCode.getTextContent();
            System.out.println(add);
+    }
     }
     public  Node getFirstElementSibling(Node node)
     {
